@@ -55,5 +55,32 @@ namespace LinkedListProblem
                 head.next = temp;//(56,next)->(30,next)->(70,null)
             }
         }
+        public Node InsertAtParticularPosition(int position, int data)
+        {
+            Node newNode = new Node(data);
+            if (head == null)
+            {
+                return newNode;
+            }
+            if (position == 0)
+            {
+                newNode.next = head;
+                head = newNode;
+                return head;
+            }
+            Node prev = null;
+            Node current = head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            newNode.next = prev.next;
+            prev.next = newNode;
+            Console.WriteLine("Inserted value is: " + head);
+            return head;
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace LinkedListProblem
             list.Display();
             list.AddInReverseOrder(70);
             list.Display();
+            list.InsertAtParticularPosition(2, 30);
         }
     }
 }
