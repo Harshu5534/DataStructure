@@ -99,7 +99,7 @@ namespace LinkedListProblem
             Console.WriteLine("Data Inserted");
             return this.head;
         }
-        internal Node RemoveFirstNode()
+        public Node RemoveFirstNode()
         {
             if (this.head == null)
             {
@@ -108,6 +108,25 @@ namespace LinkedListProblem
             this.head = this.head.next;
             Console.WriteLine("First Node Is Deleted SuccesFully ");
             return this.head;
+        }
+        public Node RemoveLastNode()
+        {
+            if (head == null)
+            {
+                return null;
+            }
+            if (head.next == null)
+            {
+                return null;
+            }
+            Node NewNode = head;
+            while (NewNode.next.next != null)
+            {
+                NewNode = NewNode.next;
+            }
+            NewNode.next = null;
+            Console.WriteLine("Last Node Is Deleted SuccesFully ");
+            return head;
         }
     }
 }
