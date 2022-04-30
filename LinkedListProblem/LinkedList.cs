@@ -12,33 +12,33 @@ namespace LinkedListProblem
         public void Add(int data)
         {
             Node node = new Node(data);
-            if(this.head==null)
+            if (this.head == null)
             {
                 this.head = node;
             }
             else
             {
                 Node temp = head;
-                while(temp.next !=null)
+                while (temp.next != null)
                 {
                     temp = temp.next;
                 }
-                temp.next= node;
+                temp.next = node;
             }
-            Console.WriteLine("{0} Inserted into Linked List",node.data);
+            Console.WriteLine("{0} Inserted into Linked List\n", node.data);
         }
         public void Display()
         {
             Node temp = this.head;
-            if(temp==null)
+            if (temp == null)
             {
                 Console.WriteLine("LinkList Is Empty");
                 return;
             }
-            while (temp!=null)
+            while (temp != null)
             {
                 Console.Write(temp.data + " ");
-                temp=temp.next;
+                temp = temp.next;
             }
         }
         public void AddInReverseOrder(int data)
@@ -54,22 +54,40 @@ namespace LinkedListProblem
                 head = newNode;//(56,null)
                 head.next = temp;//(56,next)->(30,next)->(70,null)
             }
+            Display();
         }
-        public Node InsertAtParticularPosition(int position, int data)
+        public int Search(int value)
         {
-            Node newNode = new Node(data);
-            if (head == null)
+            Node node = this.head;
+            int count = 0;
+            while (node != null)
             {
-                return newNode;
+
+                if (node.data == value)
+                {
+                    return count;
+                }
+                node = node.next;
+                count++;
+            }
+            return count;
+        }
+
+        internal Node InsertAtParticularPosition(int position, int data)
+        {
+            Node newestNode = new Node(data);
+            if (this.head == null)
+            {
+                return newestNode;
             }
             if (position == 0)
             {
-                newNode.next = head;
-                head = newNode;
-                return head;
+                newestNode.next = this.head;
+                this.head = newestNode;
+                return this.head;
             }
             Node prev = null;
-            Node current = head;
+            Node current = this.head;
             int count = 0;
             while (current != null && count < position)
             {
@@ -77,10 +95,29 @@ namespace LinkedListProblem
                 current = current.next;
                 count++;
             }
-            newNode.next = prev.next;
-            prev.next = newNode;
-            Console.WriteLine("Inserted value is: " + head);
-            return head;
+            newestNode.next = prev.next;
+            prev.next = newestNode;
+            return this.head;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
