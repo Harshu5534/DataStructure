@@ -128,6 +128,30 @@ namespace LinkedListProblem
             Console.WriteLine("Last Node Is Deleted SuccesFully ");
             return head;
         }
+        public void DeleteNodeAtParticularPosition(int position)
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+                return;
+            }
+            Node temp = this.head;
+            if (position == 0)
+            {
+                this.head = temp.next;
+                return;
+            }
+            for (int i = 0; temp != null && i < position - 1; i++)
+            {
+                temp = temp.next;
+            }
+            if (temp == null || temp.next == null)
+            {
+                return;
+            }
+            Node next = temp.next.next;
+            temp.next = next;
+        }
     }
 }
 
