@@ -70,6 +70,7 @@ namespace LinkedListProblem
                 count++;
             }
             return count;
+            Console.WriteLine("Search Value Is: "+value);
         }
 
         public Node InsertAtParticularPosition(int position, int data)
