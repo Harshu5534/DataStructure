@@ -8,7 +8,7 @@ namespace LinkedListProblem
         {
             Console.WriteLine("-----------Welcome to Linked List Program----------");
             bool end = true;
-            Console.WriteLine("Enter Option\n1.Add Data\n2.Reverse Data\n3.InsertData\n4.RemoveFirstElement\n5.RemoveLastElement\n6.Search Node\n7.End Of Program ");
+            Console.WriteLine("Enter Option\n1.Add Data\n2.Reverse Data\n3.InsertData\n4.RemoveFirstElement\n5.RemoveLastElement\n6.Search Node\n7.InsertNewData\n8.End Of Program ");
             while(end)
             {
                 LinkedList list = new LinkedList();
@@ -56,6 +56,14 @@ namespace LinkedListProblem
                         list.Search(30);
                         break;
                     case 7:
+                        list.Add(56);
+                        list.Add(30);
+                        list.Add(70);
+                        int newNode = list.Search(30);
+                        list.InsertAtParticularPosition(newNode+1, 40);
+                        list.Display();
+                        break;
+                    case 8:
                         end = false;
                         Console.WriteLine("Program Is Ended.");
                         break;
