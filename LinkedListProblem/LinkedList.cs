@@ -54,7 +54,6 @@ namespace LinkedListProblem
                 head = newNode;//(56,null)
                 head.next = temp;//(56,next)->(30,next)->(70,null)
             }
-            Display();
         }
         public int Search(int value)
         {
@@ -73,7 +72,7 @@ namespace LinkedListProblem
             return count;
         }
 
-        internal Node InsertAtParticularPosition(int position, int data)
+        public Node InsertAtParticularPosition(int position, int data)
         {
             Node newestNode = new Node(data);
             if (this.head == null)
@@ -97,6 +96,17 @@ namespace LinkedListProblem
             }
             newestNode.next = prev.next;
             prev.next = newestNode;
+            Console.WriteLine("Data Inserted");
+            return this.head;
+        }
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            Console.WriteLine("First Node Is Deleted SuccesFully ");
             return this.head;
         }
     }
